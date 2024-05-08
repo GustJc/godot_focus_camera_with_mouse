@@ -6,7 +6,7 @@ var current_mainscreen:String = "3D"
 func _enter_tree():
 	main_screen_changed.connect(store_active_main_screen)
 
-	if EditorInterface.get_edited_scene_root() is Node2D:
+	if get_editor_interface().get_edited_scene_root() is Node2D:
 		current_mainscreen = "2D"
 
 func _exit_tree():
@@ -40,10 +40,10 @@ func center_camera_at_mouse_point():
 
 ## 2D world
 func get_mouse_point_2D():
-	var mouse_position := EditorInterface.get_editor_viewport_2d().get_mouse_position()
+	var mouse_position := get_editor_interface().get_editor_viewport_2d().get_mouse_position()
 
 	## Hacky way to change focus
-	var editor_selection:EditorSelection = EditorInterface.get_selection()
+	var editor_selection:EditorSelection = get_editor_interface().get_selection()
 	var previous_selection := editor_selection.get_selected_nodes()
 
 	editor_selection.clear()
@@ -104,8 +104,8 @@ func raycast_mouse_aabb(camera:Camera3D, ray_origin:Vector3, ray_end:Vector3) ->
 	return { "position" : final_pos}
 
 func get_mouse_point_3D():
-	var mouse_position := EditorInterface.get_editor_viewport_3d().get_mouse_position()
-	var camera := EditorInterface.get_editor_viewport_3d().get_camera_3d()
+	var mouse_position := get_editor_interface().get_editor_viewport_3d().get_mouse_position()
+	var camera := get_editor_interface().get_editor_viewport_3d().get_camera_3d()
 	var ray_origin := camera.project_ray_origin(mouse_position)
 	var ray_end := ray_origin + camera.project_ray_normal(mouse_position) * 100
 
@@ -117,7 +117,7 @@ func get_mouse_point_3D():
 			return
 
 	## Hacky way to change focus
-	var editor_selection:EditorSelection = EditorInterface.get_selection()
+	var editor_selection:EditorSelection = get_editor_interface().get_selection()
 	var previous_selection := editor_selection.get_selected_nodes()
 
 	editor_selection.clear()
