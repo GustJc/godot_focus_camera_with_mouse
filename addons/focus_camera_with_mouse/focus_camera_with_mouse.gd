@@ -107,7 +107,7 @@ func get_mouse_point_3D():
 	var mouse_position := get_editor_interface().get_editor_viewport_3d().get_mouse_position()
 	var camera := get_editor_interface().get_editor_viewport_3d().get_camera_3d()
 	var ray_origin := camera.project_ray_origin(mouse_position)
-	var ray_end := ray_origin + camera.project_ray_normal(mouse_position) * 100
+	var ray_end := ray_origin + camera.project_ray_normal(mouse_position) * 1000
 
 	var raycast := raycast_mouse_collision_3D(camera, ray_origin, ray_end)
 	if not raycast:
