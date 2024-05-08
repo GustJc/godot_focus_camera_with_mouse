@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfr40fj864a6r"]
+
+[ext_resource type="Texture2D" uid="uid://bu0naw01g3n6x" path="res://demo/prototype_textures/light_08.png" id="1_8yjia"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ahbrl"]
+albedo_texture = ExtResource("1_8yjia")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o5gc6"]
+albedo_color = Color(1, 0, 0, 1)
+albedo_texture = ExtResource("1_8yjia")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m60xh"]
+albedo_color = Color(0, 0.390625, 1, 1)
+albedo_texture = ExtResource("1_8yjia")
+uv1_triplanar = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5nkuw"]
+albedo_color = Color(0.101563, 1, 0, 1)
+albedo_texture = ExtResource("1_8yjia")
+uv1_triplanar = true
+
+[node name="World3D" type="Node3D"]
+
+[node name="Ground" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.135742, 0)
+material_override = SubResource("StandardMaterial3D_ahbrl")
+use_collision = true
+size = Vector3(14.5081, 0.271484, 12.6389)
+
+[node name="Focus_1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2255, 1.04648, 4.62648)
+material_override = SubResource("StandardMaterial3D_o5gc6")
+use_collision = true
+size = Vector3(0.427734, 2.18799, 0.421631)
+
+[node name="Focus_2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.37067, 1.04648, -4.30555)
+material_override = SubResource("StandardMaterial3D_m60xh")
+use_collision = true
+size = Vector3(0.427734, 2.18799, 0.421631)
+
+[node name="Focus_3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.85676, 1.04648, -3.67817)
+material_override = SubResource("StandardMaterial3D_5nkuw")
+use_collision = true
+size = Vector3(0.427734, 2.18799, 0.421631)
